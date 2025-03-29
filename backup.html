@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub User Info</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h2>GitHub User Info</h2>
+    <button id="fetch">Get User Info</button>
+    <pre id="output"></pre>
+
+    <script>
+        $(document).ready(function () {
+            $("#fetch").click(function () {
+                $.ajax({
+                    url: "https://api.github.com/graphql",
+                    type: "POST",
+                    headers: {
+                        "Authorization": "Bearer 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",  // Replace with your token
+                        "Content-Type": "application/json"
+                    },
+                    data: JSON.stringify({
+                        query: `
+                        {
+                          user(login: "ita27rmp100") {
+                            socialAccounts(first: 5) {
+                                provider
+                                url
+                            }
+                          }
+                        }`
+                    }),
+                    success: function (data) {
+                        $("#output").text(JSON.stringify(data, null, 2));
+                    },
+                    error: function (err) {
+                        $("#output").text("Error fetching data. Ensure your token is correct.");
+                    }
+                });
+            });
+        });
+        // alternative codes :
+        // JSON_res.forEach(element => {
+        //     social_accounts[element.provider] = [element.url] 
+        // });
+    </script>
+
+</body>
+</html>
