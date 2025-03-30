@@ -1,0 +1,14 @@
+/* genereal */
+*{
+    transition: all 500ms;
+    position: relative;
+}
+/* effect for repo ticket */
+.repo{
+    cursor: context-menu;
+    user-select:none;
+}
+.repo:hover{
+    top: -3px;
+    box-shadow: 0px 5px 5px -4px grey;
+}

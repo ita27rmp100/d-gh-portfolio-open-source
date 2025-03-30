@@ -2,7 +2,7 @@
 let repos = {} , prSkills = []
 $.get("https://api.github.com/users/ita27rmp100/repos",function(data){
     for(let i=0;i<Object.keys(data).length;i++){
-        repos[`${data[i].name}`] = `${data[i].html_url}`
+        repos[`${data[i].name}`] = [`${data[i].html_url}`,`${data[i].language}`]
         $.get(`https://api.github.com/repos/ita27rmp100/${data[i].name}/languages`,function(res){
             for(let j=0;j<Object.keys(res).length;j++){
                 if(!(prSkills.includes(Object.keys(res)[j]))){
