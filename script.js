@@ -1,11 +1,18 @@
-// GET users's repos {name:link}
-let repos = {}
+// GET users's repos {name:link} and programming skills array
+let repos = {} , prSkills = []
 $.get("https://api.github.com/users/ita27rmp100/repos",function(data){
     for(let i=0;i<Object.keys(data).length;i++){
-        //console.log(`${data[i].name} : ${data[i].html_url} `)
         repos[`${data[i].name}`] = `${data[i].html_url}`
+        $.get(`https://api.github.com/repos/ita27rmp100/${data[i].name}/languages`,function(res){
+            for(let j=0;j<Object.keys(res).length;j++){
+                if(!(prSkills.includes(Object.keys(res)[j]))){
+                    prSkills.push(Object.keys(res)[j])
+                }
+            }
+        })
     }
     console.log(repos)
+    console.log(prSkills)
 })
 // GET user information
 let user = {}
@@ -14,7 +21,7 @@ $.get("https://api.github.com/users/ita27rmp100",function(data){
         name:data.name,
         img:data.avatar_url,
         about:data.bio,
-        insta:data.instagram_username
+        location:data.location
     }
     console.log(user)  
 })
