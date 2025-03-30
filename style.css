@@ -3,6 +3,19 @@
     transition: all 500ms;
     position: relative;
 }
+body{
+    overflow-x: hidden;
+}
+/* first slide */
+.overview{
+    background-image: url(images/pr_bg.jpeg);
+    background-size:cover;
+    backdrop-filter: blur(10px);
+}
+.overlay{
+    backdrop-filter: brightness(0.6) ;
+    width:95%;
+}
 /* effect for repo ticket */
 .repo{
     cursor: context-menu;
