@@ -2,6 +2,9 @@
 *{
     transition: all 500ms;
     position: relative;
+    font-family: "Winky Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 body{
     overflow-x: hidden;
@@ -13,8 +16,13 @@ body{
     backdrop-filter: blur(10px);
 }
 .overlay{
-    backdrop-filter: brightness(0.6) ;
+    backdrop-filter:brightness(0.6);
     width:95%;
+}
+/* More Information nav */
+.info-sec{
+    backdrop-filter:brightness(0.6);
+    width: 300px;
 }
 /* effect for repo ticket */
 .repo{
