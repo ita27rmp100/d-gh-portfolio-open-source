@@ -22,10 +22,19 @@ body{
 /* More Information nav */
 .info-sec{
     backdrop-filter:brightness(0.6);
-    width: 300px;
+    width:300px;
+    height:190px
+}
+.about{
+    gap:10px;
+}
+.lnk:hover{
+    left:2px;
+    border-left:1px solid white;
+    padding-left:2px;
 }
 /* effect for repo ticket */
-.repo{
+.repo , .lnk{
     cursor: context-menu;
     user-select:none;
 }
