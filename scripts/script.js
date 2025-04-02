@@ -1,5 +1,3 @@
-const { extend } = require("jquery")
-
 function go(lnk){
     window.location = lnk 
 }
