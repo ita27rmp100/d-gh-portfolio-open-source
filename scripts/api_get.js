@@ -3,7 +3,8 @@ let repos = {} , prSkills = [] , projectsChilds = '' , skillsList = ''
 $.get("https://api.github.com/users/ita27rmp100/repos",function(data){
     for(let i=0;i<Object.keys(data).length;i++){
         repos[`${data[i].name}`] = [`${data[i].html_url}`,`${data[i].language}`]
-        projectsChilds += `<new-repo reponame="${repos[`${data[i].name}`]}" lnk="${data[i].html_url}" lang="${data[i].language}"></new-repo>`
+        console.log(data[i].name)
+        projectsChilds += `<new-repo reponame="${data[i].name}" lnk="${data[i].html_url}" lang="${data[i].language}"></new-repo>`
         $.get(`https://api.github.com/repos/ita27rmp100/${data[i].name}/languages`,function(res){
             for(let j=0;j<Object.keys(res).length;j++){
                 if(!(prSkills.includes(Object.keys(res)[j]))){
@@ -13,7 +14,7 @@ $.get("https://api.github.com/users/ita27rmp100/repos",function(data){
             }
         })
     }
-    console.log(projectsChilds)
+    console.log(prSkills)
     $("#projects").html(projectsChilds)
     $("#skills").html(skillsList)
 })
@@ -26,6 +27,10 @@ $.get("https://api.github.com/users/ita27rmp100",function(data){
         about:data.bio,
         location:data.location
     }
+    $("#subtitle").html(`@${document.title.slice(document.title.indexOf("|")+2)} | <i class="fa-solid fa-map"></i> ${user.location}`)
+    $(".FullName").text(user.name)
+    $("#avatar").attr("src",user.img)
+    $("#bio").text(user.about)
     console.log(user)  
 })
     // my github token : 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
@@ -55,7 +60,8 @@ $.ajax({
         JSON_res = data.data.user.socialAccounts.nodes;
         for(i=0;i<JSON_res.length;i++){
             social_accounts[JSON_res[i].provider] = JSON_res[i].url
-            socialsHTML += `<social-acc name="${JSON_res[i].provider}" lnk="JSON_res[i].url"></social-acc>`
+            console.log(JSON_res[i].provider)
+            socialsHTML += `<social-acc name="${JSON_res[i].provider}" lnk="${JSON_res[i].url}"></social-acc>`
         }
         $("#socials").html(socialsHTML)
     },

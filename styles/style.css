@@ -11,7 +11,7 @@ body{
 }
 /* first slide */
 .overview{
-    background-image: url(images/pr_bg.jpeg);
+    background-image: url(../images/pr_bg.jpeg);
     background-size:cover;
     backdrop-filter: blur(10px);
 }
