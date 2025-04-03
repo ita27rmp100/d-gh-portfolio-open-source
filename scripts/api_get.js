@@ -1,14 +1,14 @@
 // GET users's repos {name:link} and programming skills array
-let repos = {} , prSkills = [] , projectsChilds = '' , skillsList = ''
+let /*repos = {} , prSkills = []*/ , projectsChilds = '' , skillsList = ''
 $.get("https://api.github.com/users/ita27rmp100/repos",function(data){
     for(let i=0;i<Object.keys(data).length;i++){
-        repos[`${data[i].name}`] = [`${data[i].html_url}`,`${data[i].language}`]
+        // repos[`${data[i].name}`] = [`${data[i].html_url}`,`${data[i].language}`]
         console.log(data[i].name)
         projectsChilds += `<new-repo reponame="${data[i].name}" lnk="${data[i].html_url}" lang="${data[i].language}"></new-repo>`
         $.get(`https://api.github.com/repos/ita27rmp100/${data[i].name}/languages`,function(res){
             for(let j=0;j<Object.keys(res).length;j++){
                 if(!(prSkills.includes(Object.keys(res)[j]))){
-                    prSkills.push(Object.keys(res)[j])
+                    // prSkills.push(Object.keys(res)[j])
                     skillsList += `<new-skill skill="${Object.keys(res)[j]}"></new-skill>`
                 }
             }
@@ -35,7 +35,7 @@ $.get("https://api.github.com/users/ita27rmp100",function(data){
 })
     // my github token : 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
 // GET the social accounts
-let social_accounts = {} , socialsHTML = '' ;
+let /*social_accounts = {}*/ , socialsHTML = '' ;
 $.ajax({
     url: "https://api.github.com/graphql",
     type: "POST",
