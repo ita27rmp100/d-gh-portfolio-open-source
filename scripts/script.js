@@ -3,7 +3,7 @@ function go(lnk){
 }
 class GH_REPO extends HTMLElement{
     connectedCallback(){
-        this.innerHTML=`<div class="card col-4 repo" onclick="go("${this.getAttribute("lnk")}")">
+        this.innerHTML=`<div class="card repo" onclick="go('${this.getAttribute("lnk")}')">
                             <div class="card-body d-flex justify-content-between align-items-center">
                                 <h5 class="text-dark mb-0">${this.getAttribute("reponame")}</h5>
                                 <i class="devicon-${this.getAttribute("lang")}-plain colored p-0 fs-3" ></i>
