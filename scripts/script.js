@@ -20,12 +20,12 @@ class Social extends HTMLElement{
     connectedCallback(){
         let social_name = this.getAttribute("name")
         let class_strct
-        // if(social_name.toLowerCase()=="gmail"){
-        //     class_strct = "fa-solid fa-envelope"
-        // }
-        // else{
+        if(social_name.toLowerCase()=="gmail"){
+            class_strct = "fa-solid fa-envelope"
+        }
+        else{
             class_strct = `fa-brands fa-${social_name.toLocaleLowerCase()}`
-        // }
+        }
         this.innerHTML=`<section class="lnk" onclick="go('${this.getAttribute("lnk")}')">
                             <i class="${class_strct}">&nbsp; ${social_name}</i>
                         </section>`
@@ -35,3 +35,11 @@ class Social extends HTMLElement{
 customElements.define("new-repo",GH_REPO)
 customElements.define("new-skill",Skills)
 customElements.define("social-acc",Social)
+const tags = {
+    "new-repo":GH_REPO,
+    "new-skill":Skills,
+    "social-acc":Social
+}
+for(tag in tags){
+    customElements.define(tag,tags[tag])
+}
