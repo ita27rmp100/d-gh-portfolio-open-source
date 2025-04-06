@@ -1,14 +1,45 @@
 // GET users's repos {name:link} and programming skills array
-let /*repos = {} , prSkills = []*/ projectsChilds = '' , skillsList = ''
+let /*repos = {} ,*/ prSkills = [] , projectsChilds = '' , skillsList = ''
+    // modules to fetch skills list
+async function fetchRepoLanguages(repoName) {
+    try {
+        const response = await fetch(`https://api.github.com/repos/ita27rmp100/${repoName}/languages`);
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        
+        const res = await response.json();
+        const langs = Object.keys(res);
+
+        for (let lang of langs) {
+            if (!prSkills.includes(lang)) {
+                prSkills.push(lang);
+                skillsList += `<new-skill class="p-2" skill="${lang.toLowerCase()}"></new-skill>`;
+            }
+        }
+    } catch (err) {
+        console.error(`Failed to fetch languages for ${repoName}:`, err);
+    }
+}
+
+// Example usage for multiple repositories:
+async function processRepos(data) {
+    for (let i = 0; i < data.length; i++) {
+        await fetchRepoLanguages(data[i].name);
+    }
+
+    // Do something with skillsList after all data is fetched
+    document.getElementById('skills-container').innerHTML = skillsList;
+}
+
 $.get("https://api.github.com/users/ita27rmp100/repos",function(data){
     for(let i=0;i<Object.keys(data).length;i++){
         // repos[`${data[i].name}`] = [`${data[i].html_url}`,`${data[i].language}`]
         console.log(data[i].name)
-        projectsChilds += `<new-repo reponame="${data[i].name}" lnk="${data[i].html_url}" lang="${data[i].language.toLowerCase()}" class="p-2"></new-repo>`
+        projectsChilds += `<new-repo reponame="${data[i].name}" lnk="${data[i].html_url}" lang="${String(data[i].language).toLowerCase()}" class="p-2"></new-repo>`
         $.get(`https://api.github.com/repos/ita27rmp100/${data[i].name}/languages`,function(res){
-            for(let j=0;j<Object.keys(res).length;j++){
+            let langsLength = Object.keys(res).length
+            for(let j=0;j<langsLength;j++){
                 if(!(prSkills.includes(Object.keys(res)[j]))){
-                    // prSkills.push(Object.keys(res)[j])
+                    prSkills.push(Object.keys(res)[j])
                     skillsList += `<new-skill class="p-2" skill="${Object.keys(res)[j].toLowerCase()}"></new-skill>`
                 }
             }
