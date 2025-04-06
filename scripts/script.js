@@ -32,9 +32,6 @@ class Social extends HTMLElement{
     }
 }
 
-customElements.define("new-repo",GH_REPO)
-customElements.define("new-skill",Skills)
-customElements.define("social-acc",Social)
 const tags = {
     "new-repo":GH_REPO,
     "new-skill":Skills,
