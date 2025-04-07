@@ -40,7 +40,7 @@ npm install
 ### ▶️ Run the Project
 
 ```bash
-node app.js
+npm start
 ```
 
 Once the server is running, open your browser and visit:
@@ -59,7 +59,7 @@ http://localhost:3000/?username=their-github-username
 
 ## ✨ Customization
 
-You can modify the portfolio layout, color scheme, and content by editing the files in the `/templates` folder.
+You can modify the portfolio layout, color scheme, and content by editing the files in the `/public` and `/views` folders.
 
 ---
 
@@ -72,16 +72,8 @@ Pull requests and suggestions are welcome—feel free to contribute!
 
 ## 🧑‍💻 Author
 
-Created with 💙 by [Your Name]  
-📫 Connect with me on [LinkedIn](https://www.linkedin.com/in/yourprofile) | 🌐 [Portfolio](https://your-portfolio-link.com)
-
----
-
-## 📄 License
-
-MIT License – Free to use, modify, and share with attribution.
-
----
+Created with 💙 by Tayeb Abderahim Ismail
+📫 Connect with me on [LinkedIn](https://www.linkedin.com/in/tayeb-abderahim-ismail/) | 🌐 [Instagram](https://www.instagram.com/tayeb_abderahim27)
 
 ## 🌐 Useful Links
 
