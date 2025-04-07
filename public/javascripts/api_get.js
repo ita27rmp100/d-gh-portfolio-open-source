@@ -1,26 +1,25 @@
+let username = document.title.slice(document.title.indexOf("|")+2)
 // GET users's repos {name:link} and programming skills array
 let projectsChilds = ''
-
-$.get("https://api.github.com/users/ita27rmp100/repos",function(data){
+$.get(`https://api.github.com/users/${username}/repos`,function(data){
     for(let i=0;i<Object.keys(data).length;i++){
-        console.log(data[i].name)
         projectsChilds += `<new-repo reponame="${data[i].name}" lnk="${data[i].html_url}" lang="${String(data[i].language).toLowerCase()}" class="p-2"></new-repo>`
     }
     $("#projects").html(projectsChilds)
-    
 })
 // GET user information
 let user = {}
-$.get("https://api.github.com/users/ita27rmp100",function(data){
+$.get(`https://api.github.com/users/${username}`,function(data){
     user = {
         name:data.name,
         img:data.avatar_url,
         about:data.bio,
         location:data.location
     }
-    $("#subtitle").html(`@${document.title.slice(document.title.indexOf("|")+2)} | <i class="fa-solid fa-map"></i> ${user.location}`)
+    $("#subtitle").html(`@${username} | <i class="fa-solid fa-map"></i> ${user.location}`)
     $(".FullName").text(user.name)
     $("#avatar").attr("src",user.img)
+    $("#icon").attr("href",user.img)
     $("#bio").text(user.about)
 })
     // my github token : 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
@@ -36,7 +35,7 @@ $.ajax({
     data: JSON.stringify({
         query: `
         {
-          user(login: "ita27rmp100") {
+          user(login: "${username}") {
             socialAccounts(first: 6) {
               nodes {
                 provider
