@@ -46,13 +46,13 @@ npm start
 Once the server is running, open your browser and visit:
 
 ```
-http://localhost:3000/?username=your-github-username
+http://localhost:3000/?username=github-username
 ```
 
-To explore someone else’s portfolio, simply change the username in the URL:
+To explore the project directly from live demo :
 
 ```
-http://localhost:3000/?username=their-github-username
+https://d-gh-portfolio.onrender.com/?username=github-username
 ```
 
 ---
@@ -77,5 +77,5 @@ Created with 💙 by Tayeb Abderahim Ismail
 
 ## 🌐 Useful Links
 
-- 🔗 [Live Demo](https://live-demo-link.com) ... soon inshallah
+- 🔗 [Live Demo](https://d-gh-portfolio.onrender.com/)
 - 📁 [GitHub Repository](https://github.com/ita27rmp100/d-gh-portfolio)
