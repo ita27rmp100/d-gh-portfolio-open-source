@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 💼 d-gh-portfolio
 
 **d-gh-portfolio** is a dynamic portfolio generator built with **Node.js** that allows GitHub users to effortlessly create personal portfolio websites using the data available in their GitHub profiles.
