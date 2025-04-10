@@ -2,7 +2,6 @@ let username = document.title.slice(document.title.indexOf("|")+2) || "ita27rmp1
 // GET users's repos {name:link} and programming skills array
 let projectsChilds = ''
 $.get(`https://api.github.com/users/${username}/repos`,function(data){
-    // let NumOfRepo = Object.keys(data).length
     data = data.sort((a,b)=>new Date(b.created_at) - new Date(a.created_at))
     for(let i=0;i<10;i++){
         projectsChilds += `<new-repo reponame="${data[i].name}" lnk="${data[i].html_url}" lang="${String(data[i].language).toLowerCase()}" class="p-2"></new-repo>`
@@ -21,7 +20,6 @@ $.get(`https://api.github.com/users/${username}`,function(data){
     $("#icon").attr("href",data.avatar_url)
     $("#bio").text(data.bio)
 })
-    // new github token : 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
 // GET the social accounts
 let socialsHTML = '' ;
 $.ajax({
