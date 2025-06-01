@@ -26,7 +26,7 @@ $.ajax({
     url: "https://api.github.com/graphql",
     type: "POST",
     headers: {
-        "Authorization": "Bearer <github token>",  // Replace with your token
+        "Authorization": "Bearer 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",  // Replace with your token
         "Content-Type": "application/json"
     },
     data: JSON.stringify({
