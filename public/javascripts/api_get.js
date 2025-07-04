@@ -1,4 +1,5 @@
 let username = document.title.slice(document.title.indexOf("|")+2) || "ita27rmp100"
+let api = window.vars.api
 // GET users's repos {name:link} and programming skills array
 let projectsChilds = ''
 $.get(`https://api.github.com/users/${username}/repos`,function(data){
@@ -26,7 +27,7 @@ $.ajax({
     url: "https://api.github.com/graphql",
     type: "POST",
     headers: {
-        "Authorization": "Bearer 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",  // Replace with your token
+        "Authorization": `Bearer ${api}`,  // Replace with your token
         "Content-Type": "application/json"
     },
     data: JSON.stringify({
