@@ -21,7 +21,7 @@ $.get(`https://api.github.com/users/${username}`,function(data){
     $("#bio").text(data.bio)
 })
 // GET the social accounts
-let socialsHTML = '' ;
+let socialsHTML = ''
 $.ajax({
     url: "https://api.github.com/graphql",
     type: "POST",
