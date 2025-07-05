@@ -4,7 +4,7 @@ let api = window.vars.api
 let projectsChilds = ''
 $.get(`https://api.github.com/users/${username}/repos`,function(data){
     data = data.sort((a,b)=>new Date(b.created_at) - new Date(a.created_at))
-    for(let i=0;i<10;i++){
+    for(let i=0;i<5;i++){
         projectsChilds += `<new-repo reponame="${data[i].name}" lnk="${data[i].html_url}" lang="${String(data[i].language).toLowerCase()}" class="p-2"></new-repo>`
     }
     projectsChilds+=`<section class="mt-3 w-100 d-flex justify-content-center">
