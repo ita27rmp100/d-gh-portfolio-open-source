@@ -1,5 +1,8 @@
 let username = document.title.slice(document.title.indexOf("|")+2) || "ita27rmp100"
-let api = window.vars.api
+let api = window.vars.api;
+if (!api) {
+    console.error("GitHub API token is missing. Please set window.vars.api before making requests.");
+}
 // GET users's repos {name:link} and programming skills array
 let projectsChilds = ''
 let projectData
