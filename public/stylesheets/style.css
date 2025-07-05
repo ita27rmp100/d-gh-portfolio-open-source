@@ -36,6 +36,15 @@ body{
 .justify-content-evenly{
     justify-content:center;
 }
+/* filter bar */
+.searchBar{
+    justify-content: center;
+    align-items:center;
+    gap:10px;
+}
+.filter{
+    border-radius:20px;
+}
 /* effect for repo ticket */
 .repo , .lnk{
     cursor: context-menu;

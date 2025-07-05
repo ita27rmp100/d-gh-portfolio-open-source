@@ -17,9 +17,11 @@
     <link rel="icon" href="/images/ita.jpg" id="icon">
 </head>
 <body>
+    <!-- navbar -->
     <nav class="navbar navbar-light bg-light d-flex row justify-content-around overflow-hidden">
         <section class="navbar-brand mb-0 h1 FullName">Ismail Tayeb Abderahim</section>
     </nav>
+    <!-- head -->
     <nav class="container-fluid bg-dark text-light d-flex flex-column align-items-center py-4 overview">
         <div class="text-center overlay p-2">
             <img src="/images/ita.jpg" height="300" width="300" class="rounded-circle shadow" id="avatar">
@@ -34,7 +36,8 @@
             </section>
         </div>
     </nav>
-    <nav class="container-fluid bg-dark text-light d-flex flex-column align-items-center justify-content-center py-4" id="more">
+    <!-- informations -->
+    <nav class="container-fluid bg-light text-dark d-flex flex-column align-items-center justify-content-center py-4" id="more">
         <h2>More about me</h2>
         <div class="container-fluid d-flex flex-row flex-wrap align-items-center justify-content-evenly about">
             <div class="info-sec p-3">
@@ -44,13 +47,21 @@
             </div>
             <img width="350px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ita27rmp100&theme=vue-dark&show_icons=true&hide_border=true&layout=compact" alt="Top Langs" />
         </div>
-        <h2 class="py-4">My Last Projects On GitHub</h2>
+        <h2 class="py-4">My Projects on GitHub</h2>
+        <!-- search bar (filter) -->
+        <div class="input-group mb-3 d-flex no-wrap searchBar w-100">
+            <input type="button" onclick="filter('arabic','t')" value="Arabic" class="btn btn-outline-success filter">
+            <input type="button" onclick="filter('english','t')" value="English" class="btn btn-outline-warning filter">
+            <input type="button" onclick="filter('french','t')" value="French" class="btn btn-outline-primary filter">
+            <input type="button" onclick="filter('spanish','t')" value="Spanish" class="btn btn-outline-danger filter">
+            <input type="button" onclick="filter(' ','t')" value="All" class="btn btn-outline-info filter">
+        </div>
         <div class="container-fluid d-flex justify-content-center flex-wrap" id="projects">
 
         </div>
     </nav>
     <!-- footer -->
-    <footer class="bg-light center text-dark text-center p-3">
+    <footer class="bg-dark center text-light text-center p-3">
         <h6>Made by <a href="https://www.linkedin.com/in/tayeb-abderahim-ismail/" target="_blank" class="text-primary">Abderahim</a> | CopyRight &copy; 2024</h6>
     </footer>
     <!--scripts-->
