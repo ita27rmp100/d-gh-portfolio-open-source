@@ -6,7 +6,7 @@ if (!api) {
 // GET users's repos {name:link} and programming skills array
 let projectsChilds = ''
 let projectData
-$.get(`https://api.github.com/users/${username}/repos`,function(data){
+$.get(`https://api.github.com/users/${username}/repos?per_page=100`,function(data){
     projectData = data
     filter("name")
 })
@@ -18,6 +18,7 @@ $.get(`https://api.github.com/users/${username}`,function(data){
     $("#avatar").attr("src",data.avatar_url)
     $("#icon").attr("href",data.avatar_url)
     $("#bio").text(data.bio)
+    if(data.bio == null) $(".description").remove()
 })
 // GET the social accounts
 let socialsHTML = '' ;
