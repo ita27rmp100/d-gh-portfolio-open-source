@@ -26,7 +26,7 @@ $.ajax({
     url: "https://api.github.com/graphql",
     type: "POST",
     headers: {
-        "Authorization": `Bearer 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`,  // Replace with your token
+        "Authorization": `Bearer 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`, 
         "Content-Type": "application/json"
     },
     data: JSON.stringify({
@@ -34,6 +34,8 @@ $.ajax({
         {
             user(login: "${username}") {
             email
+            company
+            isHireable
             socialAccounts(first: 6) {
                 nodes {
                 provider
@@ -44,12 +46,16 @@ $.ajax({
         }`
     }),
     success: function (data) {
+        console.log(data)
         let JSON_res = data.data.user.socialAccounts.nodes;
         let length = JSON_res.length
         for(i=0;i<length;i++){
             socialsHTML += `<social-acc name="${JSON_res[i].provider}" lnk="${JSON_res[i].url}"></social-acc>`
         }
         $("#socials").html(socialsHTML)
+        if(!data.data.user.isHireable){
+            $("#hireable").remove()
+        }
     },
     error: function (err) {
         console.log("Error fetching data. Ensure your token is correct.");
