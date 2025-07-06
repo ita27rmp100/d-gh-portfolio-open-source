@@ -37,7 +37,7 @@ body{
     justify-content:center;
 }
 /* filter bar */
-.searchBar{
+.bar{
     justify-content: center;
     align-items:center;
     gap:10px;

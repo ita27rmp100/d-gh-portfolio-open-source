@@ -27,7 +27,7 @@ class Social extends HTMLElement{
             class_strct = `fa-brands fa-${social_name.toLocaleLowerCase()}`
         }
         this.innerHTML=`<section class="lnk" onclick="go('${this.getAttribute("lnk")}')">
-                            <i class="${class_strct}">&nbsp; ${social_name}</i>
+                            <i class="${class_strct} text-light">&nbsp; ${social_name}</i>
                         </section>`
     }
 }

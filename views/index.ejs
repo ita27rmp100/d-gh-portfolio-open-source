@@ -43,25 +43,31 @@
     </nav>
     <!-- information -->
     <nav class="container-fluid bg-light text-dark d-flex flex-column align-items-center justify-content-center py-4" id="more">
-        <h2>More about me</h2>
+        <h2>My activities on GitHub</h2>
         <div class="container-fluid d-flex flex-row flex-wrap align-items-center justify-content-evenly about">
             <div class="info-sec p-3">
                 <h4 class="text-center" style="color:#41B883">Social Accounts</h4>
                 <div id="socials">
                 </div>
             </div>
-            <img width="350px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ita27rmp100&theme=vue-dark&show_icons=true&hide_border=true&layout=compact" alt="Top Langs" />
+            <img width="350px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=<%= username %>&theme=vue-dark&show_icons=true&hide_border=true&layout=compact" alt="Top Langs" />
         </div>
-            <hr class="bg-dark w-100">
-        <h2 class="pb-2">My Projects on GitHub</h2>
+            <hr>
+        <h2 class="pb-2">My Projects</h2>
         <!-- search bar (filter) -->
-        <div class="input-group mb-3 d-flex no-wrap searchBar w-100">
+        <div class="input-group mb-3 d-flex no-wrap bar w-100">
             <input type="button" onclick="filter('name')" id="name" value="A-Z" class="btn btn-outline-dark active filter">
             <input type="button" onclick="filter('new')" id="new" value="Newest" class="btn btn-outline-dark filter">
             <input type="button" onclick="filter('stars')" id="stars" value="Most starred" class="btn btn-outline-dark filter">
         </div>
         <div class="container-fluid d-flex justify-content-center flex-wrap" id="projects">
 
+        </div>
+            <hr>
+        <!-- social media -->
+        <h2 class="pb-2">You find me here</h2>
+        <div class="input-group mb-3 d-flex no-wrap bar w-100">
+            
         </div>
     </nav>
     <!-- footer -->
