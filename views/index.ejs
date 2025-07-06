@@ -30,6 +30,25 @@
                 <span class="font-italic">@ita27rmp100</span> &nbsp;|&nbsp; 
                 <i class="fa-solid fa-map-marker-alt"></i> Blida/Béjaïa, Algeria
             </small>
+            <div class="input-group mb-3 d-flex no-wrap bar w-100">
+                <div id="socials" class="d-flex flex-nowrap justify-content-center align-items-center" style="gap: 10px;">
+                    <social-acc name="INSTAGRAM" lnk="https://www.instagram.com/untitledmaster/">
+                        <section class="lnk" onclick="go('https://www.instagram.com/untitledmaster/')">
+                            <i class="fa-brands fa-instagram">&nbsp; INSTAGRAM</i>
+                        </section>
+                    </social-acc>
+                    <social-acc name="TWITTER" lnk="https://x.com/untitledmaster0">
+                        <section class="lnk" onclick="go('https://x.com/untitledmaster0')">
+                            <i class="fa-brands fa-twitter">&nbsp; TWITTER</i>
+                        </section>
+                    </social-acc>
+                    <social-acc name="NPM" lnk="https://www.npmjs.com/~axmedbl">
+                        <section class="lnk" onclick="go('https://www.npmjs.com/~axmedbl')">
+                            <i class="fa-brands fa-npm">&nbsp; NPM</i>
+                        </section>
+                    </social-acc>
+                </div>
+            </div>
             <article class="mt-3 p-2 text-left jumbotron description">
                 <b id="bio" class="lead text-dark">&nbsp;&nbsp; CS student with 5+ years of experience as a programmer, web developer, and more 🤓.</b>
             </article>
@@ -43,16 +62,9 @@
     </nav>
     <!-- information -->
     <nav class="container-fluid bg-light text-dark d-flex flex-column align-items-center justify-content-center py-4" id="more">
-        <h2>My activities on GitHub</h2>
-        <div class="container-fluid d-flex flex-row flex-wrap align-items-center justify-content-evenly about">
-            <div class="info-sec p-3">
-                <h4 class="text-center" style="color:#41B883">Social Accounts</h4>
-                <div id="socials">
-                </div>
-            </div>
-            <img width="350px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=<%= username %>&theme=vue-dark&show_icons=true&hide_border=true&layout=compact" alt="Top Langs" />
-        </div>
+        
             <hr>
+        <h2>My activities on GitHub</h2>
         <h2 class="pb-2">My Projects</h2>
         <!-- search bar (filter) -->
         <div class="input-group mb-3 d-flex no-wrap bar w-100">
@@ -64,17 +76,7 @@
 
         </div>
             <hr>
-        <!-- social media -->
-        <h2 class="pb-2">You find me here</h2>
-        <div class="input-group mb-3 d-flex no-wrap bar w-100">
-            <div id="socials"><social-acc name="INSTAGRAM" lnk="https://www.instagram.com/untitledmaster/"><section class="lnk" onclick="go('https://www.instagram.com/untitledmaster/')">
-                            <i class="fa-brands fa-instagram text-light">&nbsp; INSTAGRAM</i>
-                        </section></social-acc><social-acc name="TWITTER" lnk="https://x.com/untitledmaster0"><section class="lnk" onclick="go('https://x.com/untitledmaster0')">
-                            <i class="fa-brands fa-twitter text-light">&nbsp; TWITTER</i>
-                        </section></social-acc><social-acc name="NPM" lnk="https://www.npmjs.com/~axmedbl"><section class="lnk" onclick="go('https://www.npmjs.com/~axmedbl')">
-                            <i class="fa-brands fa-npm text-light">&nbsp; NPM</i>
-                        </section></social-acc></div>
-        </div>
+        
     </nav>
     <!-- footer -->
     <footer class="bg-dark center text-light text-center p-3">

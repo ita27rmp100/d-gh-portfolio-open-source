@@ -11,11 +11,6 @@ class GH_REPO extends HTMLElement{
                         </div>`
     }
 }
-class Skills extends HTMLElement{
-    connectedCallback(){
-        this.innerHTML=`<i class="devicon-${this.getAttribute("skill")}-plain colored p-0 fs-3"></i>`
-    }
-}
 class Social extends HTMLElement{
     connectedCallback(){
         let social_name = this.getAttribute("name")
@@ -27,14 +22,13 @@ class Social extends HTMLElement{
             class_strct = `fa-brands fa-${social_name.toLocaleLowerCase()}`
         }
         this.innerHTML=`<section class="lnk" onclick="go('${this.getAttribute("lnk")}')">
-                            <i class="${class_strct} text-light">&nbsp; ${social_name}</i>
+                            <i class="${class_strct}"></i>
                         </section>`
     }
 }
 
 const tags = {
     "new-repo":GH_REPO,
-    "new-skill":Skills,
     "social-acc":Social
 }
 for(tag in tags){

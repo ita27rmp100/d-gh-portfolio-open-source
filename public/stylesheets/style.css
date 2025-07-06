@@ -28,10 +28,12 @@ body{
 .about{
     gap:10px;
 }
-.lnk:hover{
-    left:2px;
-    border-left:1px solid white;
-    padding-left:2px;
+/* contac links */
+.lnk>i{
+    font-size: 20px;
+}
+.lnk:hover > i{
+    font-size:25px;
 }
 .justify-content-evenly{
     justify-content:center;
