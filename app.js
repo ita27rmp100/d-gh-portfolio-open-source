@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+require("dotenv").config()
+console.log("GITHUB_TOKEN from .env in app.js:", process.env.GITHUB_TOKEN);
 var indexRouter = require('./routes/index');
 
 var app = express();
