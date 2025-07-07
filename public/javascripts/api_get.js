@@ -26,22 +26,22 @@ $.ajax({
     url: "https://api.github.com/graphql",
     type: "POST",
     headers: {
-        "Authorization": `Bearer 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`, 
+        "Authorization": `Bearer `, 
         "Content-Type": "application/json"
     },
     data: JSON.stringify({
         query: `
         {
             user(login: "${username}") {
-            email
-            company
-            isHireable
-            socialAccounts(first: 6) {
-                nodes {
-                provider
-                url
+                email
+                company
+                isHireable
+                socialAccounts(first: 6) {
+                    nodes {
+                    provider
+                    url
+                    }
                 }
-            }
             }
         }`
     }),
@@ -55,6 +55,13 @@ $.ajax({
         $("#socials").html(socialsHTML)
         if(!data.data.user.isHireable){
             $("#hireable").remove()
+        }
+        const company = data.data.user.company
+        console.log(company)
+        if(!company){
+            $("#company").remove()
+        }else{
+            $("#company").html(`<i class="fa-solid fa-building text-info" title="Company"></i> ${company}`)
         }
     },
     error: function (err) {

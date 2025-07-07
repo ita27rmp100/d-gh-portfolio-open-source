@@ -65,3 +65,7 @@ i.fas.fa-ellipsis-h{
 new-repo{
     width:100%;
 }
+/* contact form */
+textarea{
+    resize:none;
+}

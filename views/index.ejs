@@ -30,7 +30,11 @@
                 <span class="font-italic">@ita27rmp100</span> &nbsp;|&nbsp; 
                 <i class="fa-solid fa-map-marker-alt"></i> Blida/Béjaïa, Algeria
             </small>
-            <div class="input-group mb-3 d-flex no-wrap bar w-100">
+            <small id="company">
+                <i class="fa-solid fa-building text-info" title="Company"></i> Linux Foundation
+            </small>
+            <!-- social media -->
+            <div class="input-group my-3 d-flex no-wrap bar w-100">
                 <div id="socials" class="d-flex flex-nowrap justify-content-center align-items-center" style="gap: 10px;">
                     <social-acc name="INSTAGRAM" lnk="https://www.instagram.com/untitledmaster/">
                         <section class="lnk" onclick="go('https://www.instagram.com/untitledmaster/')">
@@ -56,15 +60,19 @@
                 <a href="#more" class="btn btn-outline-info fw-bold px-4 py-2 shadow-sm"> More</a>
             </section>
         </div>
-        <div class="position-absolute" style="top:20px; right:30px;">
+        <div class="position-absolute" style="top:0px; right:0px;">
             <span class="badge badge-success p-2" id="hireable">Open to Work</span>
         </div>
     </nav>
     <!-- information -->
     <nav class="container-fluid bg-light text-dark d-flex flex-column align-items-center justify-content-center py-4" id="more">
-        
-            <hr>
         <h2>My activities on GitHub</h2>
+        <div class="row justify-content-center align-items-stretch w-100">
+            <div class="col-12 col-md-10 col-lg-8 mb-4 d-flex justify-content-center">
+                <img class="img-fluid rounded shadow w-100" style="max-height:350px;object-fit:cover;" src="https://github-readme-activity-graph.vercel.app/graph?username=<%= username %>&theme=github-dark&hide_border=false" alt="GitHub Activity Graph" />
+            </div>
+        </div>
+        <hr>
         <h2 class="pb-2">My Projects</h2>
         <!-- search bar (filter) -->
         <div class="input-group mb-3 d-flex no-wrap bar w-100">
@@ -76,6 +84,26 @@
 
         </div>
             <hr>
+        <h2 class="pb-2">Contact me</h2>
+        <div class="containter-fluid w-100">
+            <form action="/contact" method="POST" class="p-3 rounded shadow-sm bg-white w-100">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" class="form-control" id="fullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-info" value="Send">
+                </div>
+            </form>
+        </div>
         
     </nav>
     <!-- footer -->
