@@ -20,50 +20,13 @@ $.get(`https://api.github.com/users/${username}`,function(data){
     $("#bio").text(data.bio)
     if(data.bio == null) $(".description").remove()
 })
-// GET the social accounts
-let socialsHTML = '' ;
-$.ajax({
-    url: "https://api.github.com/graphql",
-    type: "POST",
-    headers: {
-        "Authorization": `Bearer `, 
-        "Content-Type": "application/json"
-    },
-    data: JSON.stringify({
-        query: `
-        {
-            user(login: "${username}") {
-                company
-                isHireable
-                socialAccounts(first: 6) {
-                    nodes {
-                    provider
-                    url
-                    }
-                }
-            }
-        }`
-    }),
-    success: function (data) {
-        console.log(data)
-        let JSON_res = data.data.user.socialAccounts.nodes;
-        let length = JSON_res.length
-        for(i=0;i<length;i++){
-            socialsHTML += `<social-acc name="${JSON_res[i].provider}" lnk="${JSON_res[i].url}"></social-acc>`
-        }
-        $("#socials").html(socialsHTML)
-        if(!data.data.user.isHireable){
-            $("#hireable").remove()
-        }
-        const company = data.data.user.company
-        console.log(company)
-        if(!company){
-            $("#company").remove()
-        }else{
-            $("#company").html(`<i class="fa-solid fa-building text-info" title="Company"></i> ${company}`)
-        }
-    },
-    error: function (err) {
-        console.log("Error fetching data. Ensure your token is correct.");
-    }
-});
+// use the fetched data from backend
+if(!Boolean(window.vars.isHireable)){
+    $("#hireable").remove()
+}
+const company = window.vars.company
+if(!company){
+    $("#company").remove()
+}else{
+    $("#company").html(`<i class="fa-solid fa-building text-info" title="Company"></i> ${company}`)
+}

@@ -36,21 +36,7 @@
             <!-- social media -->
             <div class="input-group my-3 d-flex no-wrap bar w-100">
                 <div id="socials" class="d-flex flex-nowrap justify-content-center align-items-center" style="gap: 10px;">
-                    <social-acc name="INSTAGRAM" lnk="https://www.instagram.com/untitledmaster/">
-                        <section class="lnk" onclick="go('https://www.instagram.com/untitledmaster/')">
-                            <i class="fa-brands fa-instagram">&nbsp; INSTAGRAM</i>
-                        </section>
-                    </social-acc>
-                    <social-acc name="TWITTER" lnk="https://x.com/untitledmaster0">
-                        <section class="lnk" onclick="go('https://x.com/untitledmaster0')">
-                            <i class="fa-brands fa-twitter">&nbsp; TWITTER</i>
-                        </section>
-                    </social-acc>
-                    <social-acc name="NPM" lnk="https://www.npmjs.com/~axmedbl">
-                        <section class="lnk" onclick="go('https://www.npmjs.com/~axmedbl')">
-                            <i class="fa-brands fa-npm">&nbsp; NPM</i>
-                        </section>
-                    </social-acc>
+                    <%-socialsHTML%>
                 </div>
             </div>
             <article class="mt-3 p-2 text-left jumbotron description">
@@ -121,8 +107,10 @@
     </footer>
     <!--scripts-->
     <script>
-        window.vars = {api:"<%= token %>"}
-        console.log("<%= JSON.stringify(token) %>")
+        window.vars = {
+            isHireable:"<%=isHireable%>",
+            company:"<%=company%>"
+        }
     </script>
     <script src="/javascripts/jquery-3.7.0.min.js"></script>
     <script src="/javascripts/api_get.js"></script>

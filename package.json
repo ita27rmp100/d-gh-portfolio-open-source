@@ -6,17 +6,18 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "axios": "^1.10.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^17.0.1",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "fs": "^0.0.1-security",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
   },
   "description": "**d-gh-portfolio** is a dynamic portfolio generator built with **Node.js** that allows GitHub users to effortlessly create personal portfolio websites using the data available in their GitHub profiles.",
   "main": "app.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ita27rmp100/d-gh-portfolio.git"
