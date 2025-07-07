@@ -5,7 +5,7 @@ class GH_REPO extends HTMLElement{
     connectedCallback(){
         this.innerHTML=`<div class="card repo" onclick="go('${this.getAttribute("lnk")}')">
                             <div class="card-body d-flex justify-content-between align-items-center">
-                                <h5 class="text-dark mb-0">${this.getAttribute("reponame").slice(0,20)}</h5>
+                                <h5 class="text-dark mb-0 RepoName">${this.getAttribute("reponame").slice(0,20)}</h5>
                                 <i class="devicon-${this.getAttribute("lang")}-plain colored p-0 fs-3" ></i>
                             </div>
                         </div>`

@@ -33,7 +33,6 @@ $.ajax({
         query: `
         {
             user(login: "${username}") {
-                email
                 company
                 isHireable
                 socialAccounts(first: 6) {

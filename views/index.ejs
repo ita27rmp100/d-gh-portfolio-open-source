@@ -18,11 +18,11 @@
 </head>
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-light bg-light d-flex row justify-content-around overflow-hidden">
-        <section class="navbar-brand mb-0 h1 FullName">Ismail Tayeb Abderahim</section>
+    <nav class="navbar navbar-light text-dark bg-light d-flex row justify-content-around overflow-hidden">
+        <section class="navbar-brand mb-0 h1 FullName text-dark">Ismail Tayeb Abderahim</section>
     </nav>
     <!-- head -->
-    <nav class="container-fluid bg-dark text-light d-flex flex-column align-items-center py-5 overview position-relative">
+    <nav class="container-fluid bg-dark text-light d-flex flex-column align-items-center py-5 overview position-relative head">
         <div class="text-center overlay p-4 rounded shadow-lg" style="background: rgba(0,0,0,0.7); max-width: 420px;">
             <img src="/images/ita.jpg" height="180" width="180" class="rounded-circle shadow mb-3 border border-light" id="avatar" alt="Profile picture of Ismail Tayeb Abderahim">
             <h2 class="mt-2 FullName font-weight-bold" style="letter-spacing:1px;">Ismail Tayeb Abderahim</h2>
@@ -63,6 +63,11 @@
         <div class="position-absolute" style="top:0px; right:0px;">
             <span class="badge badge-success p-2" id="hireable">Open to Work</span>
         </div>
+        <div class="position-absolute" style="top:0px; left:0px;">
+            <button class="btn btn-light m-1" title="ToggleDarkMode" id="switch">
+                <i class="fa-solid fa-sun text-warning modeIcon"></i>
+            </button>
+        </div>
     </nav>
     <!-- information -->
     <nav class="container-fluid bg-light text-dark d-flex flex-column align-items-center justify-content-center py-4" id="more">
@@ -86,7 +91,7 @@
             <hr>
         <h2 class="pb-2">Contact me</h2>
         <div class="containter-fluid w-100">
-            <form action="/contact" method="POST" class="p-3 rounded shadow-sm bg-white w-100">
+            <form action="mailto:" method="post" class="p-3 border rounded shadow-sm text-dark bg-white w-100">
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
                     <input type="text" class="form-control" id="fullname" name="fullname" required>
@@ -103,12 +108,16 @@
                     <input type="submit" class="btn btn-info" value="Send">
                 </div>
             </form>
-        </div>
-        
+        </div>     
     </nav>
     <!-- footer -->
     <footer class="bg-dark center text-light text-center p-3">
         <h6>Made by <a href="https://www.linkedin.com/in/tayeb-abderahim-ismail/" target="_blank" class="text-primary">Abderahim</a> | CopyRight &copy; <script>document.write((new Date()).getFullYear())</script></h6>
+        <div class="position-absolute" style="bottom:10px; right:10px;">
+            <form action="/login" method="post">
+                <input type="submit" value="Log in" class="btn btn-secondry">
+            </form>
+        </div>
     </footer>
     <!--scripts-->
     <script>
