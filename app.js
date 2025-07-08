@@ -18,7 +18,7 @@ var app = express();
 app.use(session({
   secret:"iorghtfolpo-d-"
 }))
-
+// login through github
 app.get("/auth/github",(req,res)=>{
   const redirect_uri = `https://github.com/login/oauth/authorize?client_id=${process.env.client_id}&redirect_uri=${process.env.callback_url}`
   res.redirect(redirect_uri)
@@ -49,8 +49,6 @@ app.get("/auth/github/callback",async (req,res)=>{
     res.send("GitHub login failed.");
   }
 })
-
-
 // the form 
 app.post('/',(req,res)=>{
   let body = ''

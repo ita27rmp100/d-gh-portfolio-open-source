@@ -26,10 +26,26 @@ class Social extends HTMLElement{
                         </section>`
     }
 }
-
+class Message extends HTMLElement{
+    connectedCallback(){
+        this.innerHTML = `<div class="card w-100">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">${this.getAttribute('name')}</h5>
+                                <small class="card-subtitle mb-2 text-muted">${this.getAttribute('email')}</small>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">${this.getAttribute('message')}</p>
+                                <div class="d-flex justify-content-end">
+                                    <a class="btn btn-success" href="mailto:${this.getAttribute('email')}">Reply</a>
+                                </div>
+                            </div>
+                        </div>`
+    }
+}
 const tags = {
     "new-repo":GH_REPO,
-    "social-acc":Social
+    "social-acc":Social,
+    "new-msg":Message
 }
 for(tag in tags){
     customElements.define(tag,tags[tag])
