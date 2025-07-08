@@ -8,27 +8,24 @@ var router = express.Router();
 /* GET home page. */
 router.get('/:username?', function(req, res, next) {
   const username = req.params.username || 'ita27rmp100';
-  // fs.writeFile(
-  //   `${userDir}/${username}.json`, '{}',
-  //   (err) => {
-  //     if (err) {
-  //       console.log(err);
-  //     } else {
-  //       console.log("Create file");
-  //     }
-  //   }
-  // );
-  const userDir = __dirname +'/users'
-  if(!fs.existsSync(userDir)){
-    fs.mkdirSync(userDir,{recursive:true})
+  // add username to session
+  req.session.username = username
+  // create the json file
+  const usersDir = `${__dirname}/users`;
+  const fileName =  `${usersDir}/${username}.json`;
+  if (!fs.existsSync(usersDir)) {
+    fs.mkdirSync(usersDir, { recursive: true });
   }
-  fs.writeFile(
-    `${userDir}/${username}.json`,'{}',
-    (err)=>{
-      if(err){
-        console.log(err)
-      };
-  })
+  if (!fs.existsSync(fileName)) {
+    fs.writeFile(
+      fileName, '{}',
+      (err) => {
+        if (err) {
+          console.log(err);
+        }
+      }
+    );
+  }
   let socialsHTML = '';
   const query = `
   {

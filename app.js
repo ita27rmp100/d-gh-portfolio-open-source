@@ -6,10 +6,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const fs = require("fs")
 const qs = require("querystring")
+const session = require("express-session")
 var indexRouter = require('./routes/index');
 
 var app = express();
 
+// midlleware
+app.use(session({
+  secret:"iorghtfolpo-d-"
+}))
 // the form 
 app.post('/',(req,res)=>{
   let body = ''
@@ -17,10 +22,28 @@ app.post('/',(req,res)=>{
     body += data
   })
   req.on("end",()=>{
-    let result = qs.parse(body)
-    console.log(result)
+    let result = qs.parse(body) , UserRecievedMsg
+    const UserJSON_file = `${__dirname}/routes/users/${req.session.username}.json`
+    fs.readFile(UserJSON_file,"utf-8",(err,data)=>{
+      if(err){
+        console.log(err)
+        return
+      }
+      UserRecievedMsg = JSON.parse(data)
+      UserRecievedMsg[String(Object.keys(UserRecievedMsg).length+1)] = [
+        result.fullname,result.email,result.message
+      ]
+      fs.writeFile(UserJSON_file,JSON.stringify(UserRecievedMsg,null,2),(err)=>{
+        if(err){
+          console.log(err)
+        }
+        else{
+          console.log("Added successfully")
+        }
+        res.redirect(`/${req.session.username}`)
+      })
+    })
   })
-  res.redirect('/')
 })
 
 
