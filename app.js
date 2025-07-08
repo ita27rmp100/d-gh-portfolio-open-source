@@ -7,7 +7,10 @@ var logger = require('morgan');
 const fs = require("fs")
 const qs = require("querystring")
 const session = require("express-session")
-var indexRouter = require('./routes/index');
+
+// routes
+const indexRouter = require('./routes/index');
+const messagesRouter = require("./routes/messages")
 
 var app = express();
 
@@ -15,6 +18,12 @@ var app = express();
 app.use(session({
   secret:"iorghtfolpo-d-"
 }))
+
+// login through github
+
+
+
+
 // the form 
 app.post('/',(req,res)=>{
   let body = ''
@@ -58,7 +67,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter)
-
+app.use("/messages",messagesRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

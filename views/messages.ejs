@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./master/head.ejs') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./master/navbar.ejs') %>
+    <%- include('./master/switch_mode.ejs') %>
+    <!-- display the messages -->
+    <nav class="d-flex flex-row justify-content-center align-items-center" id="messages">
+        <div class="card" style="width: 22rem; margin: 1rem;"></div>
+            <div class="card-body">
+                <h5 class="card-title">< message.fullName ></h5>
+                <h6 class="card-subtitle mb-2 text-muted">< message.email ></h6>
+                <p class="card-text">< message.content ></p>
+            </div>
+        </div>
+    </nav>
+    <%- include('./master/scripts.ejs') %>
+</body>
+</html>
