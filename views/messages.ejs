@@ -8,12 +8,15 @@
     <%- include('./master/navbar.ejs') %>
     <%- include('./master/switch_mode.ejs') %>
     <!-- display the messages -->
-    <nav class="d-flex flex-row justify-content-center align-items-center" id="messages">
-        <div class="card" style="width: 22rem; margin: 1rem;"></div>
+    <nav class="container mt-2 d-flex flex-row justify-content-center align-items-center" id="messages">
+        <div class="card" style="width: 22rem; margin: 1rem;">
+            <div class="card-head">
+                <h5 class="card-title mb-0">message.fullName</h5>
+                <small class="card-subtitle mb-2 text-muted">message.email</small>
+            </div>
             <div class="card-body">
-                <h5 class="card-title">< message.fullName ></h5>
-                <h6 class="card-subtitle mb-2 text-muted">< message.email ></h6>
-                <p class="card-text">< message.content ></p>
+                <p class="card-text">message.content</p>
+                <a class="btn btn-success">Reply</a>
             </div>
         </div>
     </nav>

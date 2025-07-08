@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/',(req,res)=>{
-    res.render("messages")
+router.get('/:username',(req,res)=>{
+    res.render("messages",{username:req.params.username})
 })
 
 module.exports = router

@@ -7,7 +7,7 @@ var logger = require('morgan');
 const fs = require("fs")
 const qs = require("querystring")
 const session = require("express-session")
-
+const axios = require("axios")
 // routes
 const indexRouter = require('./routes/index');
 const messagesRouter = require("./routes/messages")
@@ -19,9 +19,36 @@ app.use(session({
   secret:"iorghtfolpo-d-"
 }))
 
-// login through github
+app.get("/auth/github",(req,res)=>{
+  const redirect_uri = `https://github.com/login/oauth/authorize?client_id=${process.env.client_id}&redirect_uri=${process.env.callback_url}`
+  res.redirect(redirect_uri)
+})
+app.get("/auth/github/callback",async (req,res)=>{
+  const code = req.query.code;
+  try {
+    const tokenRes = await axios.post(
+      "https://github.com/login/oauth/access_token",
+      {
+        client_id: process.env.client_id,
+        client_secret: process.env.client_secret,
+        code,
+      },
+      { headers: { accept: "application/json" } }
+    );
 
+    const access_token = tokenRes.data.access_token;
 
+    const userRes = await axios.get("https://api.github.com/user", {
+      headers: { Authorization: `Bearer ${access_token}` }
+    });
+
+    const user = userRes.data;
+    res.redirect(`/messages/${user.login}`);
+  } catch (err) {
+    console.log(err)
+    res.send("GitHub login failed.");
+  }
+})
 
 
 // the form 
