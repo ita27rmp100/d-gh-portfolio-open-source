@@ -19,7 +19,7 @@ router.get('/:username',(req,res)=>{
             msgsList += `<new-msg name="${msg[0]}" email="${msg[1]}" message="${msg[2]}"></new-msg>`
         }
     }
-    res.render("messages",{msgsList})
+    res.render("messages",{msgsList,username})
 })
 
 module.exports = router

@@ -4,11 +4,11 @@
     <%- include('./master/head.ejs') %>
     <title>Document</title>
 </head>
-<body class="text-light">
+<body class="text-dark">
     <%- include('./master/navbar.ejs') %>
     <%- include('./master/switch_mode.ejs') %>
     <!-- display the messages -->
-    <nav class="container mt-2 d-flex flex-row justify-content-center align-items-center" id="messages" style="min-height:80vh;">
+    <nav class="container mt-2 d-flex flex-row justify-content-center" id="messages" style="min-height:80vh;">
         <%- msgsList %>
     </nav>
     <%- include('./master/scripts.ejs') %>

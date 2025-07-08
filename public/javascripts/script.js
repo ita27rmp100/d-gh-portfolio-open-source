@@ -67,7 +67,7 @@ $("#switch").click(function(){
         .removeClass(`text-${modes[Math.abs(IndexMode-1)][0]} bg-${modes[IndexMode][0]}`)
 
     // labels & repoNames
-    $("label, .RepoName").addClass('text-dark').removeClass('text-light bg-dark')
+    $("label, .RepoName, .msg").addClass('text-dark').removeClass('text-light bg-dark')
     // selection bar and 'more' button in "My projects" part
     $(".bar .filter, .repoMore .btn").each(function() {
         $(this)

@@ -15,8 +15,9 @@ You can even explore the portfolios of other GitHub users—just by entering the
 - 🛠️ **Powered by Node.js** – Fast, reliable backend.
 - ⚙️ **Run locally in seconds** – Quick and easy setup with `npm` and Node.
 - 🧩 **Customizable template** – Modify layout, colors, and content to suit your style.
-
----
+- 🌗 **Dark & Light Mode** – Instantly switch between dark and light themes for a personalized viewing experience.
+- 📬 **Built-in Messaging** – Receive and read messages directly within your portfolio dashboard.
+- 🔐 **GitHub Login Integration** – Securely log in with your GitHub account to access private features like messaging.
 
 ## 🧪 Getting Started
 
@@ -74,6 +75,10 @@ Pull requests and suggestions are welcome—feel free to contribute!
 
 Created with 💙 by Tayeb Abderahim Ismail
 📫 Connect with me on [LinkedIn](https://www.linkedin.com/in/tayeb-abderahim-ismail/) | 🌐 [Instagram](https://www.instagram.com/tayeb_abderahim27)
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ## 🌐 Useful Links
 
