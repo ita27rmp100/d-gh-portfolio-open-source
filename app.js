@@ -5,9 +5,24 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const fs = require("fs")
+const qs = require("querystring")
 var indexRouter = require('./routes/index');
 
 var app = express();
+
+// the form 
+app.post('/',(req,res)=>{
+  let body = ''
+  req.on('data',(data)=>{
+    body += data
+  })
+  req.on("end",()=>{
+    let result = qs.parse(body)
+    console.log(result)
+  })
+  res.redirect('/')
+})
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -2,16 +2,34 @@ require("dotenv").config();
 const api = process.env.GITHUB_TOKEN;
 var express = require('express');
 const axios = require('axios');
+const fs = require("fs")
 var router = express.Router();
-
-console.log("Loaded token:", api);
 
 /* GET home page. */
 router.get('/:username?', function(req, res, next) {
-
   const username = req.params.username || 'ita27rmp100';
+  // fs.writeFile(
+  //   `${userDir}/${username}.json`, '{}',
+  //   (err) => {
+  //     if (err) {
+  //       console.log(err);
+  //     } else {
+  //       console.log("Create file");
+  //     }
+  //   }
+  // );
+  const userDir = __dirname +'/users'
+  if(!fs.existsSync(userDir)){
+    fs.mkdirSync(userDir,{recursive:true})
+  }
+  fs.writeFile(
+    `${userDir}/${username}.json`,'{}',
+    (err)=>{
+      if(err){
+        console.log(err)
+      };
+  })
   let socialsHTML = '';
-  console.log(api)
   const query = `
   {
     user(login: "${username}") {

@@ -14,7 +14,8 @@
     "express": "^4.21.2",
     "fs": "^0.0.1-security",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "queryparser": "^1.0.0"
   },
   "description": "**d-gh-portfolio** is a dynamic portfolio generator built with **Node.js** that allows GitHub users to effortlessly create personal portfolio websites using the data available in their GitHub profiles.",
   "main": "app.js",

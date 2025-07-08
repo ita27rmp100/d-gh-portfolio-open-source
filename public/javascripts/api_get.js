@@ -21,7 +21,7 @@ $.get(`https://api.github.com/users/${username}`,function(data){
     if(data.bio == null) $(".description").remove()
 })
 // use the fetched data from backend
-if(!Boolean(window.vars.isHireable)){
+if(window.vars.isHireable == 'false'){
     $("#hireable").remove()
 }
 const company = window.vars.company
