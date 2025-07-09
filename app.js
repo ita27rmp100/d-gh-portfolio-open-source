@@ -18,6 +18,7 @@ var app = express();
 app.use(session({
   secret:"iorghtfolpo-d-"
 }))
+
 // login through github
 app.get("/auth/github",(req,res)=>{
   const redirect_uri = `https://github.com/login/oauth/authorize?client_id=${process.env.client_id}&redirect_uri=${process.env.callback_url}`
@@ -43,9 +44,9 @@ app.get("/auth/github/callback",async (req,res)=>{
     });
 
     const user = userRes.data;
+    req.session.loggedUser = user.login
     res.redirect(`/messages/${user.login}`);
   } catch (err) {
-    console.log(err)
     res.send("GitHub login failed.");
   }
 })

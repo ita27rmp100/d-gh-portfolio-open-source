@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs')
+const fs = require('fs');
 
 router.get('/:username',(req,res)=>{
     const username = req.params.username
+    if(username!=req.session.loggedUser){
+        res.redirect(`/${username}`)
+        return
+    }
     const dataDir = `${__dirname}/users/${username}.json`
     if (!fs.existsSync(dataDir)) {
         res.render("messages",{msgsList:"<b>No messages has been sent for you</b>"})

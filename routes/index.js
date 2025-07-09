@@ -26,6 +26,11 @@ router.get('/:username?', function(req, res, next) {
       }
     );
   }
+  if (!fs.existsSync(`${__dirname}/users/favicon.ico.json`)) {
+    fs.unlink(`${__dirname}/users/favicon.ico.json`,(err)=>{
+      if(err) return
+    })
+  }
   let socialsHTML = '';
   const query = `
   {
